@@ -1,0 +1,29 @@
+{
+  "name": "nodejs_auth",
+  "version": "1.0.0",
+  "description": "NodeJs Authentication Using PassportJs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Piyush-Keshri/NodeJs_Auth.git"
+  },
+  "author": "Piyush-Keshri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Piyush-Keshri/NodeJs_Auth/issues"
+  },
+  "homepage": "https://github.com/Piyush-Keshri/NodeJs_Auth#readme",
+  "dependencies": {
+    "cookie-session": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "passport": "^0.6.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-oauth2": "^1.6.1"
+  }
+}
