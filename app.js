@@ -8,7 +8,13 @@ require("./passport-setup");
 // For an actual app you should configure this with an experation time, better keys, proxy and secure
 app.use(
   cookieSession({
-    name: "tuto-session",
+    name: "google-auth-session",
+    keys: ["key1", "key2"],
+  })
+);
+app.use(
+  cookieSession({
+    name: "twitter-auth-session",
     keys: ["key1", "key2"],
   })
 );
@@ -53,6 +59,15 @@ app.get(
   function (req, res) {
     // Successful authentication, redirect home.
     res.redirect("/success");
+  }
+);
+
+app.get("/twitter", passport.authenticate("twitter"));
+app.get(
+  "/twitter/callback",
+  passport.authenticate("twitter", { failureRedirect: "/failed" }),
+  function (req, res) {
+    res.redirect("/");
   }
 );
 

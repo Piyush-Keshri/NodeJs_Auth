@@ -1,5 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
+const TwitterStrategy = require("passport-twitter").Strategy;
 
 passport.serializeUser(function (user, done) {
   /*
@@ -29,6 +30,19 @@ passport.use(
     },
     function (request, accessToken, refreshToken, profile, done) {
       console.log(profile);
+      return done(null, profile);
+    }
+  )
+);
+passport.use(
+  new TwitterStrategy(
+    {
+      consumerKey: process.env.TWITTER_CLIENT_ID,
+      consumerSecret: process.env.TWITTER_CLIENT_SECRET,
+      callbackURL: process.env.TWITTER_CALLBACK_URL,
+      passReqToCallback: true,
+    },
+    function (accessToken, refreshToken, profile, done) {
       return done(null, profile);
     }
   )
